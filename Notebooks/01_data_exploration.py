@@ -31,4 +31,33 @@ print(df.isna().sum())
 print("\nDuplicate rows:")
 print(df.duplicated().sum())
 
+# Inspect Level-2 administrative units
+
+print("\nUnique values in each object/string column:")
+
+for column in df.select_dtypes(include="object").columns:
+    print(f"\n{column}:")
+    print("Number of unique values:", df[column].nunique())
+    print(df[column].dropna().unique())
+
+    # Inspect administrative levels and their PCODEs
+
+print("\nAdministrative levels and PCODEs:")
+
+adm_summary = (
+    df.groupby("adm_level")["PCODE"]
+    .nunique()
+    .reset_index(name="number_of_pcodes")
+)
+
+print(adm_summary)
+
+print("\nPCODEs by administrative level:")
+
+for level in sorted(df["adm_level"].unique()):
+    pcodes = sorted(df.loc[df["adm_level"] == level, "PCODE"].unique())
+
+    print(f"\nADM Level {level} ({len(pcodes)} PCODEs):")
+    print(pcodes)
+
 
