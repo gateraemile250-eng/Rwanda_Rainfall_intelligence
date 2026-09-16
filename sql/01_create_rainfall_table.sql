@@ -1,4 +1,4 @@
-CREATE TABLE rainfall_observations (
+CREATE TABLE IF NOT EXISTS rainfall_observations (
     date DATE NOT NULL,
     adm_level INTEGER NOT NULL,
     adm_id INTEGER NOT NULL,

@@ -8,16 +8,22 @@ __pycache__/
 # Environment variables and secrets
 .env
 .env.*
+!.env.example
+
+# Pipeline staging data
+data/staging/
+
+# Airflow runtime files
+airflow/logs/
+airflow/config/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Temporary files
+# Temporary and log files
 *.tmp
 *.log
 
 # Operating system files
 .DS_Store
-Thumbs.dbs
-# Raw datasets
-data/raw/
+Thumbs.db
