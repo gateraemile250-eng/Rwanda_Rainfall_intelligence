@@ -874,6 +874,12 @@ All five DAG tasks completed successfully.
 
 This validates the integration between **Docker, Airflow, Python ETL, PostgreSQL, automated data-quality checks, and the analytical SQL layer**.
 
+### Fresh-Clone Reproducibility
+
+The containerized workflow was validated from a clean GitHub clone using a newly configured environment and fresh Docker volumes. The Airflow DAG completed successfully, loading **58,680 observations with 58,680 unique composite keys** into a fresh PostgreSQL database and creating all **six analytical views**.
+
+This confirms reproducibility of the core Dockerized data-engineering workflow independently of the original development environment.
+
 ---
 
 ## Engineering Design Principles
